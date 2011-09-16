@@ -1,0 +1,22 @@
+<env>
+	<admin>y_nk@martian-arts.org</admin>
+	
+	<timezone>Europe/Paris</timezone>
+	
+	<database>
+		<host>127.0.0.1</host>
+		<name>mydb</name>
+		<user>root</user>
+		<pass>root</pass>
+	</database>
+
+	<routes domain='mydomain.com'>
+		<subdomain name='www'>
+			<module name='front' url='/'>
+				<debug />
+			</module>
+		</subdomain>
+	</routes>
+
+	<constant name='GA' value='UA-000000' />
+</env>
