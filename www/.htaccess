@@ -1,0 +1,29 @@
+##### INI SETTINGS (not supported on 1&1)
+#php_value session.name 'SSID'
+#php_value session.auto_start 0
+#php_value session.entropy_file '/dev/urandom'
+#php_value session.entropy_length 256
+#php_value session.save_path '/tmp'
+#php_value session.use_only_cookies 1
+#php_value session.cookie_httponly 1
+#php_value session.hash_function 1
+#php_value session.hash_bits_per_character 6
+
+##### REWRITING
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^.+$ index.php [L]
