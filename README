@@ -113,7 +113,16 @@ RewriteRule ^ - [L]
 RewriteRule ^.+$ index.php [L]
 
 
-So, any url that is not pointing a valid file will be redirected to the index, which will launch our framework's main class.Step by step rendering process1/ Autoload and definitions
+So, any url that is not pointing a valid file will be redirected to the index, which will launch our framework's main class.
+
+
+
+
+
+Step by step rendering process
+
+1/ Autoload and definitions
+
 It will include ./load.php which defines some constants :
 
 ROOT	/ (of the framework)
